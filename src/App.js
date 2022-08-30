@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import EmailPage from "./pages/EmailPage";
 import LoginPage from "./pages/LoginPage";
+import TablePage from "./pages/TablePage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/email" element={<EmailPage />} />
+      <Route path="/table" element={<TablePage />} />
     </Routes>
   </BrowserRouter>
   );
