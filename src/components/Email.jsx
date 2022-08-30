@@ -13,22 +13,12 @@ const Email = () => {
                 <img src="https://images.pexels.com/photos/792953/pexels-photo-792953.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="church" />
                 <p className='title'>C H U R C H</p>
                 <p className='subtitle'>
-                    Please enter your email address <span>and password below to login</span>
+                    Please enter your email address below and we'll <span>send you password reset instructions.</span>
                 </p>
-                <form>
+                <form className='mt-5'>
                     <label>Email</label>
                     <input type="text" placeholder='Enter email address' />
-                    <div className="flex">
-                        <label>Password</label>
-                        <label className='forget'>
-                            Forgot your password
-                        </label>
-                    </div>
-                    <div className="eye__icon">
-                        <span className='ab'><i className="fa fa-eye"></i></span>
-                        <input className='password' type="password" placeholder='Enter Password' />
-                    </div>
-                    <div className='d-flex justify-content-between'>
+                    <div className='d-flex justify-content-between mt-3'>
                         <button className='btn btn-secondry' onClick={handleRedirect}>Back</button>
                         <button className='btn btn-primary reset'>Send me reset instructions</button>
                     </div>
