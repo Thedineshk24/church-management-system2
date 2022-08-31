@@ -3,13 +3,15 @@ import { DataGrid } from '@mui/x-data-grid';
 import { Button } from '@mui/material';
 
 import "../styles/datagrid.scss";
+import { Container } from 'react-bootstrap';
+import Header from '../layout/Header';
 
 const columns = [
     { field: 'items', headerName: 'items', width: 150 },
     {
         field: 'desc',
         headerName: 'Description',
-        width: 1000,
+        width: 800,
         editable: true,
     },
     {
@@ -24,14 +26,17 @@ const columns = [
         sortable: false,
         width: 160,
         renderCell: (params) => {
+            let isPaid = true;
             return (
                 <Button
                     variant="contained"
                     color="primary"
                     size="small"
-                    style={{ marginLeft: 16 }}
+                    style={{ marginLeft: 16 , backgroundColor: "#3561FF"}}
                 >
-                    Pay Now
+                    {
+                        isPaid ? "Paid" : "PayNow"
+                    }
                 </Button>
             )
         }
@@ -52,6 +57,10 @@ const rows = [
 
 export default function Table() {
     return (
+        <>
+        <Header />
+        <Container lg={3} md={2} xs={1} sm={1} className="g-3">
+        <h3 className="pb-3">Payments & dues</h3>
         <div style={{ 
             height: 400,
             width:"100%"
@@ -65,15 +74,16 @@ export default function Table() {
                   border: 'none',
                 },
                 '.MuiDataGrid-columnHeaderTitleContainer':{
-                    backgroundColor:"#E8E9EB"
+                    backgroundColor:"#E8E9EB",
                 }
               }}
                 rows={rows}
                 getRowId={(row) => row.items}
                 columns={columns}
                 pageSize={5}
-                disableSelectionOnClick
             />
         </div>
+        </Container>
+        </>
     );
 }
